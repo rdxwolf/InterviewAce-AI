@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Mode | InterviewAce AI</title>
+    <link rel="stylesheet" href="/interview.css">
+</head>
+<body class="dark-theme">
+
+    <header>
+        <div class="container">
+            <a href="main.html" class="logo">InterviewAce AI</a>
+            <nav>
+                <ul>
+                    <li><a href="main.html">Home</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="categories.html" class="active">Categories</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle"><span></span><span></span><span></span></div>
+        </div>
+    </header>
+
+    <main class="page-main container">
+        
+        <section id="quiz-container" class="practice-interface card" style="max-width: 800px; margin: 0 auto;">
+            
+            <div class="practice-top" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                <span id="category-title" style="text-transform: capitalize; font-weight: bold; color: var(--primary-color);">Loading...</span>
+                
+                <select id="question-count-selector" class="btn btn-outline" style="padding: 5px 15px; font-size: 0.9rem; cursor: pointer; background-color: var(--card-bg-color);">
+                    <option value="5">5 Questions</option>
+                    <option value="10">10 Questions</option>
+                    <option value="20">20 Questions</option>
+                    <option value="all">All Questions</option>
+                </select>
+
+                <span id="question-counter">Question -- of --</span>
+            </div>
+            
+            <div class="cat-bar" style="width: 100%; margin-top: 15px; margin-bottom: 30px; background-color: var(--border-color);">
+                <div id="quiz-progress" class="cat-fill" style="width: 0%; background-color: var(--primary-color);"></div>
+            </div>
+
+            <div class="question-text">
+                <h4 id="question-text">Loading question...</h4>
+            </div>
+
+            <div id="options-list" class="options-list">
+                </div>
+
+            <div style="margin-top: 30px; text-align: right;">
+                <button id="next-btn" class="btn btn-primary" style="display: none;">Next Question &rarr;</button>
+            </div>
+        </section>
+
+        <section id="result-container" class="practice-interface card text-center" style="max-width: 800px; margin: 0 auto; display: none;">
+            <div style="font-size: 4rem; margin-bottom: 20px;">🏆</div>
+            <h2 style="margin-bottom: 10px;">Practice Completed!</h2>
+            <p style="color: var(--text-muted); margin-bottom: 20px;">Great job taking the time to practice.</p>
+            <h3 style="font-size: 2rem; color: var(--primary-color); margin-bottom: 30px;">Your Score: <span id="final-score">0</span> / <span id="total-questions">0</span></h3>
+            
+            <div style="display: flex; gap: 15px; justify-content: center;">
+                <button onclick="window.location.reload()" class="btn btn-outline">Try Again</button>
+                <a href="categories.html" class="btn btn-primary">Choose Another Category</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">InterviewAce AI</a>
+                <p>
+                    Your all-in-one platform to practice interviews and land your dream
+                    job.
+                </p>
+            </div>
+            <div class="footer-links">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="categories.html">Categories</a></li>
+                    <li><a href="practice.html">Practice Now</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="faqs.html">FAQs</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="contact.html">Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Connect With Us</h4>
+                <div class="social-icons">
+                    <a href="https://instagram.com/gurinder__2000" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="mailto:akarsh4211@gmail.com" aria-label="Gmail">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/gurindersharma2000" target="_blank" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom container">
+            <p>&copy; 2026 InterviewAce AI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="questions.js"></script>
+    <script src="practice.js"></script>
+    <script src="interview.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories | InterviewAce AI - Choose Your Path</title>
+    <link rel="stylesheet" href="./interview.css">
+</head>
+<body class="dark-theme">
+
+    <header>
+        <div class="container">
+            <a href="main.html" class="logo">InterviewAce AI</a>
+            <nav>
+                <ul>
+                    <li><a href="main.html">Home</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="categories.html" class="active">Categories</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="categories.html" class="btn btn-primary start-practice">Start Practice</a>
+            <div class="menu-toggle"><span></span><span></span><span></span></div>
+        </div>
+    </header>
+
+    <main class="page-main container">
+        <div class="page-header">
+            <h1 class="page-title">Categories</h1>
+            <p class="page-subtitle">Choose a category and start practicing interview questions tailored for you.</p>
+        </div>
+
+        <section class="category-selection-grid">
+            <div class="category-select-card card" data-category="frontend">
+                <span class="icon large">&lt;/&gt;</span>
+                <h3>Frontend</h3>
+                <p>HTML, CSS, JavaScript, React, Angular, Vue.js, and more.</p>
+                <div class="cat-details">
+                    <span>200+ Questions</span>
+                    <span>Beginner to Advanced</span>
+                    <span>Regular Updates</span>
+                </div>
+                <a href="practice.html?cat=frontend" class="btn btn-primary start-cat">Start Frontend &rarr;</a>
+            </div>
+            <div class="category-select-card card" data-category="backend">
+                <span class="icon large">🖧</span>
+                <h3>Backend</h3>
+                <p>Node.js, Express, Python, Databases, APIs, and more.</p>
+                <div class="cat-details">
+                    <span>180+ Questions</span>
+                    <span>Beginner to Advanced</span>
+                    <span>Regular Updates</span>
+                </div>
+                <a href="practice.html?cat=backend" class="btn btn-purple start-cat">Start Backend &rarr;</a>
+            </div>
+            <div class="category-select-card card" data-category="hr">
+                <span class="icon large">👤</span>
+                <h3>HR Interview</h3>
+                <p>Behavioral, Technical, and Situational HR questions.</p>
+                <div class="cat-details">
+                    <span>150+ Questions</span>
+                    <span>Interview Tips</span>
+                    <span>Expert Approved</span>
+                </div>
+                <a href="practice.html?cat=hr" class="btn btn-teal start-cat">Start HR Practice &rarr;</a>
+            </div>
+            <div class="category-select-card card" data-category="support">
+                <span class="icon large">🎧</span>
+                <h3>Customer Support</h3>
+                <p>Communication, Problem Solving, and more.</p>
+                <div class="cat-details">
+                    <span>120+ Questions</span>
+                    <span>Real-world Scenarios</span>
+                    <span>Expert Approved</span>
+                </div>
+                <a href="practice.html?cat=support" class="btn btn-orange start-cat">Start Support Practice &rarr;</a>
+            </div>
+        </section>
+
+        <!-- Recommendation Test -->
+        <section class="recommendation-test card">
+            <div class="text-block">
+                <h3>Not sure which category to choose?</h3>
+                <p>Take a quick test and we'll recommend the best path for you.</p>
+                <button id="takeRecommendationTest" class="btn btn-outline">Take Recommendation Test &rarr;</button>
+            </div>
+            <div class="graphic-block">🎯</div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">InterviewAce AI</a>
+                <p>
+                    Your all-in-one platform to practice interviews and land your dream
+                    job.
+                </p>
+            </div>
+            <div class="footer-links">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="categories.html">Categories</a></li>
+                    <li><a href="practice.html">Practice Now</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="faqs.html">FAQs</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="contact.html">Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Connect With Us</h4>
+                <div class="social-icons">
+                    <a href="https://instagram.com/gurinder__2000" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="mailto:akarsh4211@gmail.com" aria-label="Gmail">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/gurindersharma2000" target="_blank" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom container">
+            <p>&copy; 2026 InterviewAce AI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="./interview.js"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InterviewAce - Excel to JS Converter</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #0b1121; color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+        .card { background-color: #121a2e; padding: 40px; border-radius: 12px; border: 1px solid #1f2937; text-align: center; max-width: 500px; }
+        h1 { color: #3b82f6; margin-bottom: 10px; }
+        input[type="file"] { margin: 20px 0; padding: 10px; border: 1px dashed #3b82f6; border-radius: 8px; width: 100%; cursor: pointer; }
+        button { background-color: #10b981; color: white; border: none; padding: 12px 24px; border-radius: 8px; font-weight: bold; cursor: pointer; display: none; width: 100%; }
+        button:hover { background-color: #059669; }
+        p { color: #9ca3af; font-size: 0.9rem; margin-bottom: 20px; }
+    </style>
+    <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+
+    <div class="card">
+        <h1>⚙️ Question Converter</h1>
+        <p>Upload your filled <b>InterviewAce_Question_Manager.xlsx</b> file here to generate your new <b>questions.js</b> file.</p>
+        
+        <input type="file" id="excel-file" accept=".xlsx, .xls, .csv">
+        <button id="download-btn">Download new questions.js</button>
+    </div>
+
+    <script>
+        let finalCodeString = "";
+
+        document.getElementById('excel-file').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const data = new Uint8Array(e.target.result);
+                const workbook = XLSX.read(data, {type: 'array'});
+                
+                const questionsDb = { frontend: [], backend: [], hr: [], support: [] };
+                
+                // Map the Excel sheet names to our JavaScript category names
+                const categoryMap = { "Frontend": "frontend", "Backend": "backend", "HR Interview": "hr", "Customer Support": "support" };
+
+                // Go through each sheet in the Excel file
+                workbook.SheetNames.forEach(sheetName => {
+                    const jsCategory = categoryMap[sheetName];
+                    if (jsCategory) {
+                        // Convert sheet to a JavaScript object
+                        const sheetData = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName]);
+                        
+                        // Format it exactly how our practice.js file needs it
+                        sheetData.forEach(row => {
+                            // Only add rows that actually have a question
+                            if (row["Question"]) {
+                                questionsDb[jsCategory].push({
+                                    question: row["Question"],
+                                    options: [
+                                        row["Option A (Index 0)"], 
+                                        row["Option B (Index 1)"], 
+                                        row["Option C (Index 2)"], 
+                                        row["Option D (Index 3)"]
+                                    ],
+                                    answer: parseInt(row["Correct Answer Index (0-3)"])
+                                });
+                            }
+                        });
+                    }
+                });
+
+                // Wrap it in the variable name
+                finalCodeString = `/* questions.js - Auto-generated from Excel */\n\nconst questionsData = ${JSON.stringify(questionsDb, null, 4)};`;
+                
+                // Show the download button
+                document.getElementById('download-btn').style.display = 'block';
+            };
+            reader.readAsArrayBuffer(file);
+        });
+
+        // Handle Download
+        document.getElementById('download-btn').addEventListener('click', function() {
+            const blob = new Blob([finalCodeString], { type: "text/javascript" });
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = "questions.js";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+    </script>
+</body>
+</html>
